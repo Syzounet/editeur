@@ -20,7 +20,7 @@ public class CommandeRemplacer extends CommandeDocument{
         int fin = Integer.parseInt(parameters[2]);   // permet de récupérer le deuxième paramètre de la commande
         String remplacement = parameters[3];
         this.document.remplacer(debut, fin, remplacement); // permet de remplacer le texte
-super.executer();
+        super.executer();
 
     }
 }
