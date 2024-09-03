@@ -2,6 +2,8 @@ package fr.iut.editeur.commande;
 
 import fr.iut.editeur.document.Document;
 
+import java.util.Objects;
+
 public class CommandeRemplacer extends CommandeDocument{
 
     public CommandeRemplacer(Document document, String[] parameters) {
@@ -10,15 +12,12 @@ public class CommandeRemplacer extends CommandeDocument{
 
     @Override
     public void executer(){
-        if(parameters.length < 3) {
-            System.err.println("Format attendu : remplacer;debut;fin;remplacement");
-            return;
-        }
-
 
         int debut = Integer.parseInt(parameters[1]); // permet de récupérer le premier paramètre de la commande
         int fin = Integer.parseInt(parameters[2]);   // permet de récupérer le deuxième paramètre de la commande
-        if (parameters[3].equals("")){
+
+
+        if (parameters.length < 4 || Objects.equals(parameters[3], "")){
             this.document.remplacer(debut, fin, "");
             super.executer();
         }else {
