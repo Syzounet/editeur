@@ -17,7 +17,7 @@ public class CommandeRemplacer extends CommandeDocument{
         int fin = Integer.parseInt(parameters[2]);   // permet de récupérer le deuxième paramètre de la commande
 
 
-        if (parameters.length < 4 || Objects.equals(parameters[3], "")){
+        if (parameters.length < 3 || Objects.equals(parameters[3], "")){
             this.document.remplacer(debut, fin, "");
             super.executer();
         }else {
