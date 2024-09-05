@@ -24,6 +24,10 @@ public class Document {
         this.remplacer(debut, fin, "");
     }
 
+    public void clear() {
+        this.texte = "L";
+    }
+
     public void remplacer(int debut, int fin, String remplacement) {
         String partieGauche = texte.substring(0, debut);
         String partieDroite = texte.substring(fin + 1);
