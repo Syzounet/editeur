@@ -37,6 +37,11 @@ public class Document {
         remplacer(debut, fin, texte.substring(debut, fin + 1).toUpperCase());
     }
 
+    public void inserer(int position, String texteAInserer) {
+        String partieGauche = texte.substring(0, position);
+        String partieDroite = texte.substring(position);
+        texte = partieGauche + texteAInserer + partieDroite;
+    }
     @Override
     public String toString() {
         return this.texte;
