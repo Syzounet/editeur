@@ -66,7 +66,7 @@ public class Document {
      */
     public void remplacer(int debut, int fin, String remplacement) {
         String partieGauche = texte.substring(0, debut);
-        String partieDroite = texte.substring(fin + 1);
+        String partieDroite = texte.substring(fin);
         texte = partieGauche + remplacement + partieDroite;
     }
 
@@ -76,7 +76,7 @@ public class Document {
      * @param fin La position de fin (incluse) de la portion à convertir en majuscules.
      */
     public void majuscules(int debut, int fin) {
-        remplacer(debut, fin, texte.substring(debut, fin + 2).toUpperCase());
+        remplacer(debut, fin, texte.substring(debut, fin + 1).toUpperCase());
     }
 
     /**
