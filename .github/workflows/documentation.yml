@@ -1,0 +1,35 @@
+name: Generate and Publish Javadoc
+
+on:
+  push:
+    branches:
+      - master  # Déclenche le workflow uniquement sur la branche master
+
+permissions:
+  contents: write  # Autorise l'écriture pour créer et mettre à jour la branche gh-pages
+
+jobs:
+  generate-and-publish:
+    runs-on: ubuntu-latest  # Utilise une machine virtuelle Ubuntu
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4  # Vérifie les fichiers du dépôt
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'  # Configure Java 17
+          distribution: 'oracle'
+
+      - name: Install Maven
+        run: sudo apt-get install -y maven  # Installe Maven
+
+      - name: Generate Javadoc
+        run: mvn javadoc:javadoc  # Génère la documentation Javadoc
+
+      - name: Publish Javadoc
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Authentifie l'action pour écrire sur la branche gh-pages
+          publish_dir: ./target/site/apidocs  # Répertoire contenant la documentation générée
