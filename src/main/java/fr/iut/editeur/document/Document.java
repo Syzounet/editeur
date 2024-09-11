@@ -76,7 +76,7 @@ public class Document {
      * @param fin La position de fin (incluse) de la portion à convertir en majuscules.
      */
     public void majuscules(int debut, int fin) {
-        remplacer(debut, fin, texte.substring(debut, fin + 1).toUpperCase());
+        remplacer(debut, fin, texte.substring(debut, fin + 2).toUpperCase());
     }
 
     /**
