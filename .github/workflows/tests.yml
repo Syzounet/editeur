@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository  # Étape pour vérifier les fichiers du dépôt
         uses: actions/checkout@v4  # Utilise l'action checkout pour obtenir le code source
 
-      - name: Set up Java 11  # Configure l'environnement Java 11 (ajuster selon la version nécessaire)
+      - name: Set up Java 17  # Configure l'environnement Java 11 (ajuster selon la version nécessaire)
         uses: actions/setup-java@v2
         with:
           java-version: '17'  # Spécifie la version de Java à utiliser
